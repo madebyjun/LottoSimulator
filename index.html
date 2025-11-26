@@ -1,133 +1,1255 @@
 <!DOCTYPE html>
-<html lang="ja"><head>
+<html lang="ja">
+
+<head>
 
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>バーチャル年末ジャンボシミュレーター</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&amp;family=Roboto+Mono:wght@500;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&amp;family=Roboto+Mono:wght@500;700&amp;display=swap"
+        rel="stylesheet">
     <style>
-        body { font-family: 'Noto Sans JP', sans-serif; }
-        .font-mono { font-family: 'Roboto Mono', monospace; }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+
         .gradient-text {
             background: linear-gradient(to bottom, #FFFF00, #FFD700, #FFA500);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
         }
-        .animate-pop { animation: pop 0.2s ease-out; }
+
+        .animate-pop {
+            animation: pop 0.2s ease-out;
+        }
+
         @keyframes pop {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
     </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.right-0{right:0px}.top-0{top:0px}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mt-1{margin-top:0.25rem}.mt-10{margin-top:2.5rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-48{height:12rem}.h-5{height:1.25rem}.h-\[500px\]{height:500px}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-5{width:1.25rem}.w-full{width:100%}.max-w-5xl{max-width:64rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-3{gap:0.75rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-slate-700 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(51 65 85 / var(--tw-divide-opacity, 1))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.rounded-lg{border-radius:0.5rem}.rounded-l-lg{border-top-left-radius:0.5rem;border-bottom-left-radius:0.5rem}.rounded-r-lg{border-top-right-radius:0.5rem;border-bottom-right-radius:0.5rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-b-4{border-bottom-width:4px}.border-gray-600{--tw-border-opacity:1;border-color:rgb(75 85 99 / var(--tw-border-opacity, 1))}.border-slate-600{--tw-border-opacity:1;border-color:rgb(71 85 105 / var(--tw-border-opacity, 1))}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.border-yellow-500{--tw-border-opacity:1;border-color:rgb(234 179 8 / var(--tw-border-opacity, 1))}.border-blue-400{--tw-border-opacity:1;border-color:rgb(96 165 250 / var(--tw-border-opacity, 1))}.bg-slate-600{--tw-bg-opacity:1;background-color:rgb(71 85 105 / var(--tw-bg-opacity, 1))}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.bg-slate-700\/30{background-color:rgb(51 65 85 / 0.3)}.bg-slate-700\/50{background-color:rgb(51 65 85 / 0.5)}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-slate-800\/50{background-color:rgb(30 41 59 / 0.5)}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-slate-900\/50{background-color:rgb(15 23 42 / 0.5)}.bg-yellow-500{--tw-bg-opacity:1;background-color:rgb(234 179 8 / var(--tw-bg-opacity, 1))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-red-500{--tw-gradient-from:#ef4444 var(--tw-gradient-from-position);--tw-gradient-to:rgb(239 68 68 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-slate-900{--tw-gradient-from:#0f172a var(--tw-gradient-from-position);--tw-gradient-to:rgb(15 23 42 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-yellow-600{--tw-gradient-from:#ca8a04 var(--tw-gradient-from-position);--tw-gradient-to:rgb(202 138 4 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-pink-600{--tw-gradient-to:#db2777 var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.to-yellow-800{--tw-gradient-to:#854d0e var(--tw-gradient-to-position)}.object-cover{object-fit:cover}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-6xl{font-size:3.75rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.tracking-tighter{letter-spacing:-0.05em}.tracking-wider{letter-spacing:0.05em}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-gray-200{--tw-text-opacity:1;color:rgb(229 231 235 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-100{--tw-text-opacity:1;color:rgb(254 249 195 / var(--tw-text-opacity, 1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.text-yellow-500{--tw-text-opacity:1;color:rgb(234 179 8 / var(--tw-text-opacity, 1))}.text-green-400{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.text-yellow-200{--tw-text-opacity:1;color:rgb(254 240 138 / var(--tw-text-opacity, 1))}.opacity-10{opacity:0.1}.opacity-60{opacity:0.6}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.drop-shadow-lg{--tw-drop-shadow:drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow-md{--tw-drop-shadow:drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:bg-slate-500:hover{--tw-bg-opacity:1;background-color:rgb(100 116 139 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-600:hover{--tw-bg-opacity:1;background-color:rgb(71 85 105 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-700\/50:hover{background-color:rgb(51 65 85 / 0.5)}.hover\:from-red-400:hover{--tw-gradient-from:#f87171 var(--tw-gradient-from-position);--tw-gradient-to:rgb(248 113 113 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:to-pink-500:hover{--tw-gradient-to:#ec4899 var(--tw-gradient-to-position)}.focus\:ring-yellow-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(234 179 8 / var(--tw-ring-opacity, 1))}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:opacity-20{opacity:0.2}@media (min-width: 768px){.md\:h-64{height:16rem}.md\:w-auto{width:auto}.md\:flex-none{flex:none}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-6xl{font-size:3.75rem;line-height:1}.md\:text-base{font-size:1rem;line-height:1.5rem}}@media (min-width: 1024px){.lg\:col-span-1{grid-column:span 1 / span 1}.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}</style><link type="text/css" href="https://fonts.googleapis.com/css2?family=Google+Symbols:opsz,wght,FILL,GRAD,ROND@24,400,0,0,50&amp;icon_names=link" rel="stylesheet"><style id="dyn-img-link-styles-di-script">
-      .dyn-img-link-wrapper-di-script {
-        anchor-scope: all;
-        display: contents;
-        position: relative;
-        z-index: 1;
-      }
+    <style>
+        *,
+        ::before,
+        ::after {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
 
-      .dyn-img-link-wrapper-di-script img {
-        anchor-name: --photo;
-        display: block;
-        max-width: 100%;
-      }
+        ::backdrop {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
 
-      .dyn-img-link-di-script {
-        z-index: 999999;
-        background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 9999px;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-        color: white;
-        height: clamp(13px, calc(max(anchor-size(width), anchor-size(height)) * 0.3), 21px);
-        width: clamp(13px, calc(max(anchor-size(width), anchor-size(height)) * 0.3), 21px);
-        padding: 4px;
-        position: absolute;
+        /* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: #e5e7eb
+        }
 
-        bottom: anchor(bottom);
-        left: anchor(left);
-        margin-left: 10px;
-        margin-bottom: 10px;
+        ::after,
+        ::before {
+            --tw-content: ''
+        }
 
-        transition: background-color 0.2s ease-in-out;
-      }
+        :host,
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            tab-size: 4;
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            -webkit-tap-highlight-color: transparent
+        }
 
-      .dyn-img-link-di-script:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-      }
+        body {
+            margin: 0;
+            line-height: inherit
+        }
 
-      .dyn-img-link-di-script span {
-        font-size: 14px;
-        vertical-align: top;
-      }
+        hr {
+            height: 0;
+            color: inherit;
+            border-top-width: 1px
+        }
 
-      .dyn-img-attribution-button-di-script {
-        z-index: 999999;
-        background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 9999px;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-        color: white;
-        width: clamp(13px, calc(max(anchor-size(width), anchor-size(height)) * 0.3), 21px);
-        height: clamp(13px, calc(max(anchor-size(width), anchor-size(height)) * 0.3), 21px);
-        padding: 4px;
+        abbr:where([title]) {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted
+        }
 
-        position: absolute;
-        position-anchor: --photo;
-        top: anchor(top);
-        right: anchor(right);
-        margin-top: 10px;
-        margin-right: 10px;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: inherit;
+            font-weight: inherit
+        }
 
-        transition: background-color 0.2s ease-in-out;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+        a {
+            color: inherit;
+            text-decoration: inherit
+        }
 
-      .dyn-img-attribution-button-di-script:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-      }
+        b,
+        strong {
+            font-weight: bolder
+        }
 
-      .dyn-img-attribution-button-di-script span {
-        font-size: 14px;
-        vertical-align: top;
-      }
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            font-size: 1em
+        }
 
-      .dyn-img-inline-attribution-di-script {
-        z-index: 999999;
-        font-size: 12px;
-        padding: 4px;
-        display: none;
+        small {
+            font-size: 80%
+        }
 
-        position: absolute;
-        position-anchor: --photo;
-        bottom: anchor(bottom);
-        right: anchor(right);
-        margin-bottom: 8px;
-        margin-right: 8px;
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+        }
 
-        max-width: 200px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        text-align: right;
+        sub {
+            bottom: -.25em
+        }
 
-        white-space: nowrap;
-        background-color: rgba(0, 0, 0, 0.8);
-        border-radius: 9999px;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-        color: white;
-      }
-    </style><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script></head>
+        sup {
+            top: -.5em
+        }
+
+        table {
+            text-indent: 0;
+            border-color: inherit;
+            border-collapse: collapse
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-feature-settings: inherit;
+            font-variation-settings: inherit;
+            font-size: 100%;
+            font-weight: inherit;
+            line-height: inherit;
+            letter-spacing: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0
+        }
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        button,
+        input:where([type=button]),
+        input:where([type=reset]),
+        input:where([type=submit]) {
+            -webkit-appearance: button;
+            background-color: transparent;
+            background-image: none
+        }
+
+        :-moz-focusring {
+            outline: auto
+        }
+
+        :-moz-ui-invalid {
+            box-shadow: none
+        }
+
+        progress {
+            vertical-align: baseline
+        }
+
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+
+        ::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        summary {
+            display: list-item
+        }
+
+        blockquote,
+        dd,
+        dl,
+        figure,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        p,
+        pre {
+            margin: 0
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0
+        }
+
+        legend {
+            padding: 0
+        }
+
+        menu,
+        ol,
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        dialog {
+            padding: 0
+        }
+
+        textarea {
+            resize: vertical
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            opacity: 1;
+            color: #9ca3af
+        }
+
+        [role=button],
+        button {
+            cursor: pointer
+        }
+
+        :disabled {
+            cursor: default
+        }
+
+        audio,
+        canvas,
+        embed,
+        iframe,
+        img,
+        object,
+        svg,
+        video {
+            display: block;
+            vertical-align: middle
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            height: auto
+        }
+
+        [hidden]:where(:not([hidden=until-found])) {
+            display: none
+        }
+
+        .container {
+            width: 100%
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                max-width: 640px
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1280px
+            }
+        }
+
+        @media (min-width: 1536px) {
+            .container {
+                max-width: 1536px
+            }
+        }
+
+        .absolute {
+            position: absolute
+        }
+
+        .relative {
+            position: relative
+        }
+
+        .inset-0 {
+            inset: 0px
+        }
+
+        .right-0 {
+            right: 0px
+        }
+
+        .top-0 {
+            top: 0px
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem
+        }
+
+        .mt-1 {
+            margin-top: 0.25rem
+        }
+
+        .mt-10 {
+            margin-top: 2.5rem
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem
+        }
+
+        .mt-4 {
+            margin-top: 1rem
+        }
+
+        .flex {
+            display: flex
+        }
+
+        .grid {
+            display: grid
+        }
+
+        .hidden {
+            display: none
+        }
+
+        .h-48 {
+            height: 12rem
+        }
+
+        .h-5 {
+            height: 1.25rem
+        }
+
+        .h-\[500px\] {
+            height: 500px
+        }
+
+        .h-full {
+            height: 100%
+        }
+
+        .min-h-screen {
+            min-height: 100vh
+        }
+
+        .w-5 {
+            width: 1.25rem
+        }
+
+        .w-full {
+            width: 100%
+        }
+
+        .max-w-5xl {
+            max-width: 64rem
+        }
+
+        .flex-1 {
+            flex: 1 1 0%
+        }
+
+        .flex-shrink-0 {
+            flex-shrink: 0
+        }
+
+        .flex-grow {
+            flex-grow: 1
+        }
+
+        .transform {
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .cursor-pointer {
+            cursor: pointer
+        }
+
+        .select-none {
+            -webkit-user-select: none;
+            user-select: none
+        }
+
+        .list-inside {
+            list-style-position: inside
+        }
+
+        .list-disc {
+            list-style-type: disc
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr))
+        }
+
+        .flex-col {
+            flex-direction: column
+        }
+
+        .items-center {
+            align-items: center
+        }
+
+        .justify-center {
+            justify-content: center
+        }
+
+        .justify-between {
+            justify-content: space-between
+        }
+
+        .gap-2 {
+            gap: 0.5rem
+        }
+
+        .gap-4 {
+            gap: 1rem
+        }
+
+        .gap-6 {
+            gap: 1.5rem
+        }
+
+        .gap-3 {
+            gap: 0.75rem
+        }
+
+        .space-y-1> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(0.25rem * var(--tw-space-y-reverse))
+        }
+
+        .space-y-2> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(0.5rem * var(--tw-space-y-reverse))
+        }
+
+        .space-y-6> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(1.5rem * var(--tw-space-y-reverse))
+        }
+
+        .divide-y> :not([hidden])~ :not([hidden]) {
+            --tw-divide-y-reverse: 0;
+            border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+            border-bottom-width: calc(1px * var(--tw-divide-y-reverse))
+        }
+
+        .divide-slate-700> :not([hidden])~ :not([hidden]) {
+            --tw-divide-opacity: 1;
+            border-color: rgb(51 65 85 / var(--tw-divide-opacity, 1))
+        }
+
+        .overflow-hidden {
+            overflow: hidden
+        }
+
+        .overflow-x-auto {
+            overflow-x: auto
+        }
+
+        .overflow-y-auto {
+            overflow-y: auto
+        }
+
+        .whitespace-nowrap {
+            white-space: nowrap
+        }
+
+        .rounded {
+            border-radius: 0.25rem
+        }
+
+        .rounded-2xl {
+            border-radius: 1rem
+        }
+
+        .rounded-full {
+            border-radius: 9999px
+        }
+
+        .rounded-xl {
+            border-radius: 0.75rem
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem
+        }
+
+        .rounded-l-lg {
+            border-top-left-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem
+        }
+
+        .rounded-r-lg {
+            border-top-right-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem
+        }
+
+        .border {
+            border-width: 1px
+        }
+
+        .border-b {
+            border-bottom-width: 1px
+        }
+
+        .border-b-4 {
+            border-bottom-width: 4px
+        }
+
+        .border-gray-600 {
+            --tw-border-opacity: 1;
+            border-color: rgb(75 85 99 / var(--tw-border-opacity, 1))
+        }
+
+        .border-slate-600 {
+            --tw-border-opacity: 1;
+            border-color: rgb(71 85 105 / var(--tw-border-opacity, 1))
+        }
+
+        .border-slate-700 {
+            --tw-border-opacity: 1;
+            border-color: rgb(51 65 85 / var(--tw-border-opacity, 1))
+        }
+
+        .border-yellow-500 {
+            --tw-border-opacity: 1;
+            border-color: rgb(234 179 8 / var(--tw-border-opacity, 1))
+        }
+
+        .border-blue-400 {
+            --tw-border-opacity: 1;
+            border-color: rgb(96 165 250 / var(--tw-border-opacity, 1))
+        }
+
+        .bg-slate-600 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(71 85 105 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-slate-700 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(51 65 85 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-slate-700\/30 {
+            background-color: rgb(51 65 85 / 0.3)
+        }
+
+        .bg-slate-700\/50 {
+            background-color: rgb(51 65 85 / 0.5)
+        }
+
+        .bg-slate-800 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-slate-800\/50 {
+            background-color: rgb(30 41 59 / 0.5)
+        }
+
+        .bg-slate-900 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-slate-900\/50 {
+            background-color: rgb(15 23 42 / 0.5)
+        }
+
+        .bg-yellow-500 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-gradient-to-br {
+            background-image: linear-gradient(to bottom right, var(--tw-gradient-stops))
+        }
+
+        .bg-gradient-to-t {
+            background-image: linear-gradient(to top, var(--tw-gradient-stops))
+        }
+
+        .bg-gradient-to-r {
+            background-image: linear-gradient(to right, var(--tw-gradient-stops))
+        }
+
+        .from-red-500 {
+            --tw-gradient-from: #ef4444 var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(239 68 68 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .from-slate-900 {
+            --tw-gradient-from: #0f172a var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(15 23 42 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .from-yellow-600 {
+            --tw-gradient-from: #ca8a04 var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(202 138 4 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .via-transparent {
+            --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to)
+        }
+
+        .to-pink-600 {
+            --tw-gradient-to: #db2777 var(--tw-gradient-to-position)
+        }
+
+        .to-transparent {
+            --tw-gradient-to: transparent var(--tw-gradient-to-position)
+        }
+
+        .to-yellow-800 {
+            --tw-gradient-to: #854d0e var(--tw-gradient-to-position)
+        }
+
+        .object-cover {
+            object-fit: cover
+        }
+
+        .p-3 {
+            padding: 0.75rem
+        }
+
+        .p-4 {
+            padding: 1rem
+        }
+
+        .p-5 {
+            padding: 1.25rem
+        }
+
+        .p-6 {
+            padding: 1.5rem
+        }
+
+        .px-3 {
+            padding-left: 0.75rem;
+            padding-right: 0.75rem
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        .px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem
+        }
+
+        .px-8 {
+            padding-left: 2rem;
+            padding-right: 2rem
+        }
+
+        .py-1 {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem
+        }
+
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem
+        }
+
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem
+        }
+
+        .text-left {
+            text-align: left
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .text-right {
+            text-align: right
+        }
+
+        .font-mono {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+        }
+
+        .text-3xl {
+            font-size: 1.875rem;
+            line-height: 2.25rem
+        }
+
+        .text-4xl {
+            font-size: 2.25rem;
+            line-height: 2.5rem
+        }
+
+        .text-6xl {
+            font-size: 3.75rem;
+            line-height: 1
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.75rem
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.25rem
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem
+        }
+
+        .text-xs {
+            font-size: 0.75rem;
+            line-height: 1rem
+        }
+
+        .font-black {
+            font-weight: 900
+        }
+
+        .font-bold {
+            font-weight: 700
+        }
+
+        .font-medium {
+            font-weight: 500
+        }
+
+        .uppercase {
+            text-transform: uppercase
+        }
+
+        .italic {
+            font-style: italic
+        }
+
+        .leading-relaxed {
+            line-height: 1.625
+        }
+
+        .tracking-tighter {
+            letter-spacing: -0.05em
+        }
+
+        .tracking-wider {
+            letter-spacing: 0.05em
+        }
+
+        .text-black {
+            --tw-text-opacity: 1;
+            color: rgb(0 0 0 / var(--tw-text-opacity, 1))
+        }
+
+        .text-blue-400 {
+            --tw-text-opacity: 1;
+            color: rgb(96 165 250 / var(--tw-text-opacity, 1))
+        }
+
+        .text-gray-200 {
+            --tw-text-opacity: 1;
+            color: rgb(229 231 235 / var(--tw-text-opacity, 1))
+        }
+
+        .text-gray-300 {
+            --tw-text-opacity: 1;
+            color: rgb(209 213 219 / var(--tw-text-opacity, 1))
+        }
+
+        .text-gray-400 {
+            --tw-text-opacity: 1;
+            color: rgb(156 163 175 / var(--tw-text-opacity, 1))
+        }
+
+        .text-gray-500 {
+            --tw-text-opacity: 1;
+            color: rgb(107 114 128 / var(--tw-text-opacity, 1))
+        }
+
+        .text-red-400 {
+            --tw-text-opacity: 1;
+            color: rgb(248 113 113 / var(--tw-text-opacity, 1))
+        }
+
+        .text-white {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+        }
+
+        .text-yellow-100 {
+            --tw-text-opacity: 1;
+            color: rgb(254 249 195 / var(--tw-text-opacity, 1))
+        }
+
+        .text-yellow-400 {
+            --tw-text-opacity: 1;
+            color: rgb(250 204 21 / var(--tw-text-opacity, 1))
+        }
+
+        .text-yellow-500 {
+            --tw-text-opacity: 1;
+            color: rgb(234 179 8 / var(--tw-text-opacity, 1))
+        }
+
+        .text-green-400 {
+            --tw-text-opacity: 1;
+            color: rgb(74 222 128 / var(--tw-text-opacity, 1))
+        }
+
+        .text-yellow-200 {
+            --tw-text-opacity: 1;
+            color: rgb(254 240 138 / var(--tw-text-opacity, 1))
+        }
+
+        .opacity-10 {
+            opacity: 0.1
+        }
+
+        .opacity-60 {
+            opacity: 0.6
+        }
+
+        .shadow-lg {
+            --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .shadow-xl {
+            --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .shadow-sm {
+            --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .drop-shadow-lg {
+            --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+            filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
+        }
+
+        .drop-shadow-md {
+            --tw-drop-shadow: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+            filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
+        }
+
+        .transition {
+            transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms
+        }
+
+        .hover\:bg-slate-500:hover {
+            --tw-bg-opacity: 1;
+            background-color: rgb(100 116 139 / var(--tw-bg-opacity, 1))
+        }
+
+        .hover\:bg-slate-600:hover {
+            --tw-bg-opacity: 1;
+            background-color: rgb(71 85 105 / var(--tw-bg-opacity, 1))
+        }
+
+        .hover\:bg-slate-700\/50:hover {
+            background-color: rgb(51 65 85 / 0.5)
+        }
+
+        .hover\:from-red-400:hover {
+            --tw-gradient-from: #f87171 var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(248 113 113 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .hover\:to-pink-500:hover {
+            --tw-gradient-to: #ec4899 var(--tw-gradient-to-position)
+        }
+
+        .focus\:ring-yellow-500:focus {
+            --tw-ring-opacity: 1;
+            --tw-ring-color: rgb(234 179 8 / var(--tw-ring-opacity, 1))
+        }
+
+        .active\:scale-95:active {
+            --tw-scale-x: .95;
+            --tw-scale-y: .95;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .group:hover .group-hover\:opacity-20 {
+            opacity: 0.2
+        }
+
+        @media (min-width: 768px) {
+            .md\:h-64 {
+                height: 16rem
+            }
+
+            .md\:w-auto {
+                width: auto
+            }
+
+            .md\:flex-none {
+                flex: none
+            }
+
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+            }
+
+            .md\:flex-row {
+                flex-direction: row
+            }
+
+            .md\:text-2xl {
+                font-size: 1.5rem;
+                line-height: 2rem
+            }
+
+            .md\:text-6xl {
+                font-size: 3.75rem;
+                line-height: 1
+            }
+
+            .md\:text-base {
+                font-size: 1rem;
+                line-height: 1.5rem
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .lg\:col-span-1 {
+                grid-column: span 1 / span 1
+            }
+
+            .lg\:col-span-2 {
+                grid-column: span 2 / span 2
+            }
+
+            .lg\:grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr))
+            }
+
+            .lg\:grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr))
+            }
+        }
+    </style>
+    <link type="text/css"
+        href="https://fonts.googleapis.com/css2?family=Google+Symbols:opsz,wght,FILL,GRAD,ROND@24,400,0,0,50&amp;icon_names=link"
+        rel="stylesheet">
+    <style id="dyn-img-link-styles-di-script">
+        .dyn-img-link-wrapper-di-script {
+            anchor-scope: all;
+            display: contents;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dyn-img-link-wrapper-di-script img {
+            anchor-name: --photo;
+            display: block;
+            max-width: 100%;
+        }
+
+        .dyn-img-link-di-script {
+            z-index: 999999;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 9999px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            color: white;
+            height: clamp(13px, calc(max(anchor-size(width), anchor-size(height)) * 0.3), 21px);
+            width: clamp(13px, calc(max(anchor-size(width), anchor-size(height)) * 0.3), 21px);
+            padding: 4px;
+            position: absolute;
+
+            bottom: anchor(bottom);
+            left: anchor(left);
+            margin-left: 10px;
+            margin-bottom: 10px;
+
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .dyn-img-link-di-script:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .dyn-img-link-di-script span {
+            font-size: 14px;
+            vertical-align: top;
+        }
+
+        .dyn-img-attribution-button-di-script {
+            z-index: 999999;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 9999px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            color: white;
+            width: clamp(13px, calc(max(anchor-size(width), anchor-size(height)) * 0.3), 21px);
+            height: clamp(13px, calc(max(anchor-size(width), anchor-size(height)) * 0.3), 21px);
+            padding: 4px;
+
+            position: absolute;
+            position-anchor: --photo;
+            top: anchor(top);
+            right: anchor(right);
+            margin-top: 10px;
+            margin-right: 10px;
+
+            transition: background-color 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dyn-img-attribution-button-di-script:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .dyn-img-attribution-button-di-script span {
+            font-size: 14px;
+            vertical-align: top;
+        }
+
+        .dyn-img-inline-attribution-di-script {
+            z-index: 999999;
+            font-size: 12px;
+            padding: 4px;
+            display: none;
+
+            position: absolute;
+            position-anchor: --photo;
+            bottom: anchor(bottom);
+            right: anchor(right);
+            margin-bottom: 8px;
+            margin-right: 8px;
+
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: right;
+
+            white-space: nowrap;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 9999px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+
 <body class="bg-slate-900 text-white min-h-screen flex flex-col">
 
     <!-- Hero Section -->
     <div class="relative w-full h-48 md:h-64 overflow-hidden border-b-4 border-yellow-500">
-        <img style="" src="./images/image_01.png" alt="Nenmatsu Jumbo Banner" class="w-full h-full object-cover opacity-60">
+        <img style="" src="./images/image_01.png" alt="Nenmatsu Jumbo Banner"
+            class="w-full h-full object-cover opacity-60">
         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
             <h1 class="text-4xl md:text-6xl font-black gradient-text tracking-tighter drop-shadow-lg">
@@ -146,38 +1268,50 @@
         <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 shadow-xl">
             <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
                 <div class="flex gap-4 w-full md:w-auto">
-                    <button id="btn-start" class="flex-1 md:flex-none bg-gradient-to-br from-red-500 to-pink-600 hover:from-red-400 hover:to-pink-500 text-white font-bold py-4 px-8 rounded-full shadow-lg transform transition active:scale-95 flex items-center justify-center gap-2 text-lg">
+                    <button id="btn-start"
+                        class="flex-1 md:flex-none bg-gradient-to-br from-red-500 to-pink-600 hover:from-red-400 hover:to-pink-500 text-white font-bold py-4 px-8 rounded-full shadow-lg transform transition active:scale-95 flex items-center justify-center gap-2 text-lg">
                         <span class="material-symbols-outlined text-3xl">shopping_cart</span>
                         購入開始
                     </button>
-                    <button id="btn-stop" class="flex-1 md:flex-none bg-slate-600 hover:bg-slate-500 text-white font-bold py-4 px-8 rounded-full shadow-lg transform transition active:scale-95 hidden">
+                    <button id="btn-stop"
+                        class="flex-1 md:flex-none bg-slate-600 hover:bg-slate-500 text-white font-bold py-4 px-8 rounded-full shadow-lg transform transition active:scale-95 hidden">
                         ストップ
                     </button>
-                    <button id="btn-reset" class="bg-slate-700 hover:bg-slate-600 text-gray-300 font-bold py-4 px-6 rounded-full shadow-lg transition" title="リセット">
+                    <button id="btn-reset"
+                        class="bg-slate-700 hover:bg-slate-600 text-gray-300 font-bold py-4 px-6 rounded-full shadow-lg transition"
+                        title="リセット">
                         <span class="material-symbols-outlined">restart_alt</span>
                     </button>
                 </div>
 
                 <!-- Speed Control -->
-                <div class="flex items-center gap-4 bg-slate-900/50 p-3 rounded-xl border border-slate-700 w-full md:w-auto">
+                <div
+                    class="flex items-center gap-4 bg-slate-900/50 p-3 rounded-xl border border-slate-700 w-full md:w-auto">
                     <span class="text-sm text-gray-400 font-bold whitespace-nowrap">購入速度:</span>
                     <div class="flex gap-2 w-full">
-                        <button class="speed-btn flex-1 py-1 px-3 rounded text-sm font-bold bg-slate-700 text-white" data-speed="1">
+                        <button class="speed-btn flex-1 py-1 px-3 rounded text-sm font-bold bg-slate-700 text-white"
+                            data-speed="1">
                             通常
                         </button>
-                        <button class="speed-btn flex-1 py-1 px-3 rounded text-sm font-bold bg-slate-700 hover:bg-slate-600 text-white" data-speed="10">
+                        <button
+                            class="speed-btn flex-1 py-1 px-3 rounded text-sm font-bold bg-slate-700 hover:bg-slate-600 text-white"
+                            data-speed="10">
                             高速
                         </button>
-                        <button class="speed-btn flex-1 py-1 px-3 rounded text-sm font-bold hover:bg-slate-600 bg-yellow-500 text-black" data-speed="100">
+                        <button
+                            class="speed-btn flex-1 py-1 px-3 rounded text-sm font-bold hover:bg-slate-600 bg-yellow-500 text-black"
+                            data-speed="100">
                             神速
                         </button>
                     </div>
                 </div>
             </div>
-            
+
             <div class="mt-4 flex items-center gap-2">
-                <input type="checkbox" id="chk-auto-stop" class="w-5 h-5 text-yellow-500 rounded focus:ring-yellow-500 bg-slate-700 border-gray-600">
-                <label for="chk-auto-stop" class="text-sm md:text-base font-bold text-yellow-100 cursor-pointer select-none">
+                <input type="checkbox" id="chk-auto-stop"
+                    class="w-5 h-5 text-yellow-500 rounded focus:ring-yellow-500 bg-slate-700 border-gray-600">
+                <label for="chk-auto-stop"
+                    class="text-sm md:text-base font-bold text-yellow-100 cursor-pointer select-none">
                     1等・前後賞・2等が出たら自動停止
                 </label>
             </div>
@@ -228,7 +1362,7 @@
 
         <!-- Visualization Area -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            
+
             <!-- Prize Table / Hit Counter -->
             <div class="lg:col-span-2 bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl">
                 <div class="bg-slate-700/50 p-4 border-b border-slate-600 flex justify-between items-center">
@@ -249,104 +1383,107 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-700" id="prize-table-body">
-                    <tr class="hover:bg-slate-700/50 transition">
-                        <td class="px-4 py-3 font-medium text-yellow-400 font-bold">1等</td>
-                        <td class="px-4 py-3 text-right font-mono">700,000,000円</td>
-                        <td class="px-4 py-3 text-right text-xs text-gray-400">
-                            1/20,000,000<br>(0.000005%)
-                        </td>
-                        <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p1">0</td>
-                    </tr>
-                
-                    <tr class="hover:bg-slate-700/50 transition">
-                        <td class="px-4 py-3 font-medium text-yellow-400 font-bold">1等前後賞</td>
-                        <td class="px-4 py-3 text-right font-mono">150,000,000円</td>
-                        <td class="px-4 py-3 text-right text-xs text-gray-400">
-                            1/10,000,000<br>(0.000010%)
-                        </td>
-                        <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p1_adj">0</td>
-                    </tr>
-                
-                    <tr class="hover:bg-slate-700/50 transition">
-                        <td class="px-4 py-3 font-medium text-yellow-400 font-bold">2等</td>
-                        <td class="px-4 py-3 text-right font-mono">100,000,000円</td>
-                        <td class="px-4 py-3 text-right text-xs text-gray-400">
-                            1/20,000,000<br>(0.000005%)
-                        </td>
-                        <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p2">0</td>
-                    </tr>
-                
-                    <tr class="hover:bg-slate-700/50 transition">
-                        <td class="px-4 py-3 font-medium text-white font-bold">3等</td>
-                        <td class="px-4 py-3 text-right font-mono">10,000,000円</td>
-                        <td class="px-4 py-3 text-right text-xs text-gray-400">
-                            1/5,000,000<br>(0.000020%)
-                        </td>
-                        <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p3">0</td>
-                    </tr>
-                
-                    <tr class="hover:bg-slate-700/50 transition">
-                        <td class="px-4 py-3 font-medium text-white font-bold">4等</td>
-                        <td class="px-4 py-3 text-right font-mono">1,000,000円</td>
-                        <td class="px-4 py-3 text-right text-xs text-gray-400">
-                            1/500,000<br>(0.000200%)
-                        </td>
-                        <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p4">0</td>
-                    </tr>
-                
-                    <tr class="hover:bg-slate-700/50 transition">
-                        <td class="px-4 py-3 font-medium text-gray-300">1等組違い</td>
-                        <td class="px-4 py-3 text-right font-mono">100,000円</td>
-                        <td class="px-4 py-3 text-right text-xs text-gray-400">
-                            1/100,503<br>(0.000995%)
-                        </td>
-                        <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p1_diff">0</td>
-                    </tr>
-                
-                    <tr class="hover:bg-slate-700/50 transition">
-                        <td class="px-4 py-3 font-medium text-gray-300">5等</td>
-                        <td class="px-4 py-3 text-right font-mono">10,000円</td>
-                        <td class="px-4 py-3 text-right text-xs text-gray-400">
-                            1/333<br>(0.300000%)
-                        </td>
-                        <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p5">0</td>
-                    </tr>
-                
-                    <tr class="hover:bg-slate-700/50 transition">
-                        <td class="px-4 py-3 font-medium text-gray-300">6等</td>
-                        <td class="px-4 py-3 text-right font-mono">3,000円</td>
-                        <td class="px-4 py-3 text-right text-xs text-gray-400">
-                            1/100<br>(1.000000%)
-                        </td>
-                        <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p6">0</td>
-                    </tr>
-                
-                    <tr class="hover:bg-slate-700/50 transition">
-                        <td class="px-4 py-3 font-medium text-gray-300">7等</td>
-                        <td class="px-4 py-3 text-right font-mono">300円</td>
-                        <td class="px-4 py-3 text-right text-xs text-gray-400">
-                            1/10<br>(10.000000%)
-                        </td>
-                        <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p7">0</td>
-                    </tr>
-                </tbody>
+                            <tr class="hover:bg-slate-700/50 transition">
+                                <td class="px-4 py-3 font-medium text-yellow-400 font-bold">1等</td>
+                                <td class="px-4 py-3 text-right font-mono">700,000,000円</td>
+                                <td class="px-4 py-3 text-right text-xs text-gray-400">
+                                    1/20,000,000<br>(0.000005%)
+                                </td>
+                                <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p1">0</td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-700/50 transition">
+                                <td class="px-4 py-3 font-medium text-yellow-400 font-bold">1等前後賞</td>
+                                <td class="px-4 py-3 text-right font-mono">150,000,000円</td>
+                                <td class="px-4 py-3 text-right text-xs text-gray-400">
+                                    1/10,000,000<br>(0.000010%)
+                                </td>
+                                <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p1_adj">0</td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-700/50 transition">
+                                <td class="px-4 py-3 font-medium text-yellow-400 font-bold">2等</td>
+                                <td class="px-4 py-3 text-right font-mono">100,000,000円</td>
+                                <td class="px-4 py-3 text-right text-xs text-gray-400">
+                                    1/20,000,000<br>(0.000005%)
+                                </td>
+                                <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p2">0</td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-700/50 transition">
+                                <td class="px-4 py-3 font-medium text-white font-bold">3等</td>
+                                <td class="px-4 py-3 text-right font-mono">10,000,000円</td>
+                                <td class="px-4 py-3 text-right text-xs text-gray-400">
+                                    1/5,000,000<br>(0.000020%)
+                                </td>
+                                <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p3">0</td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-700/50 transition">
+                                <td class="px-4 py-3 font-medium text-white font-bold">4等</td>
+                                <td class="px-4 py-3 text-right font-mono">1,000,000円</td>
+                                <td class="px-4 py-3 text-right text-xs text-gray-400">
+                                    1/500,000<br>(0.000200%)
+                                </td>
+                                <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p4">0</td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-700/50 transition">
+                                <td class="px-4 py-3 font-medium text-gray-300">1等組違い</td>
+                                <td class="px-4 py-3 text-right font-mono">100,000円</td>
+                                <td class="px-4 py-3 text-right text-xs text-gray-400">
+                                    1/100,503<br>(0.000995%)
+                                </td>
+                                <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p1_diff">0</td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-700/50 transition">
+                                <td class="px-4 py-3 font-medium text-gray-300">5等</td>
+                                <td class="px-4 py-3 text-right font-mono">10,000円</td>
+                                <td class="px-4 py-3 text-right text-xs text-gray-400">
+                                    1/333<br>(0.300000%)
+                                </td>
+                                <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p5">0</td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-700/50 transition">
+                                <td class="px-4 py-3 font-medium text-gray-300">6等</td>
+                                <td class="px-4 py-3 text-right font-mono">3,000円</td>
+                                <td class="px-4 py-3 text-right text-xs text-gray-400">
+                                    1/100<br>(1.000000%)
+                                </td>
+                                <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p6">0</td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-700/50 transition">
+                                <td class="px-4 py-3 font-medium text-gray-300">7等</td>
+                                <td class="px-4 py-3 text-right font-mono">300円</td>
+                                <td class="px-4 py-3 text-right text-xs text-gray-400">
+                                    1/10<br>(10.000000%)
+                                </td>
+                                <td class="px-4 py-3 text-right font-mono font-bold text-lg" id="count-p7">0</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
 
             <!-- Log -->
-            <div class="lg:col-span-1 bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl flex flex-col h-[500px]">
+            <div
+                class="lg:col-span-1 bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl flex flex-col h-[500px]">
                 <div class="bg-slate-700/50 p-4 border-b border-slate-600">
                     <h3 class="font-bold text-lg flex items-center gap-2">
                         <span class="material-symbols-outlined text-blue-400">history</span>
                         高額当選履歴
                     </h3>
                 </div>
-                <div id="log-container" class="flex-1 overflow-y-auto p-4 space-y-2 scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-800">
-                <p class="text-gray-500 text-center italic text-sm mt-10">
-                    まだ当選はありません...<br>
-                    (5等 1万円以上を表示)
-                </p></div>
+                <div id="log-container"
+                    class="flex-1 overflow-y-auto p-4 space-y-2 scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-800">
+                    <p class="text-gray-500 text-center italic text-sm mt-10">
+                        まだ当選はありません...<br>
+                        (5等 1万円以上を表示)
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -362,11 +1499,40 @@
 
     </main>
 
+    <!-- Win Modal -->
+    <div id="win-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-slate-800 rounded-2xl p-8 max-w-md w-full mx-4 border-2 border-yellow-500 shadow-2xl transform scale-90 transition-transform duration-300"
+            id="win-modal-content">
+            <div class="text-center space-y-6">
+                <div class="inline-block p-4 rounded-full bg-yellow-500/20 mb-2">
+                    <span class="material-symbols-outlined text-6xl text-yellow-400 animate-bounce">trophy</span>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl font-black text-white mb-2">高額当選！</h2>
+                    <p class="text-gray-400 text-sm">おめでとうございます！</p>
+                </div>
+
+                <div class="bg-slate-700/50 rounded-xl p-6 border border-yellow-500/30">
+                    <p class="text-xl font-bold text-yellow-100 mb-2" id="modal-prize-name">1等</p>
+                    <p class="text-4xl font-mono font-black text-yellow-400 gradient-text" id="modal-prize-amount">
+                        700,000,000円</p>
+                </div>
+
+                <button id="btn-modal-close"
+                    class="w-full bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-black font-bold py-4 px-8 rounded-xl shadow-lg transform transition active:scale-95">
+                    シミュレーションを続ける
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // --- Configuration & State ---
         const UNIT_SIZE = 20000000; // 20 million tickets per unit
         const TICKET_PRICE = 300;
-        
+
         // Prize Structure (Thresholds are cumulative)
         // 0-based index from 0 to 19,999,999
         const PRIZES = [
@@ -387,7 +1553,7 @@
             cumulative += p.count;
             return { limit: cumulative, prize: p.prize, name: p.name, id: p.id };
         });
-        
+
         const NON_WINNING_LIMIT = UNIT_SIZE; // Implicitly everything else is a loss
 
         let state = {
@@ -416,7 +1582,13 @@
             statBalance: document.getElementById('stat-balance'),
             statReturn: document.getElementById('stat-return-rate'),
             logContainer: document.getElementById('log-container'),
-            prizeTableBody: document.getElementById('prize-table-body')
+            prizeTableBody: document.getElementById('prize-table-body'),
+            // Modal
+            modalOverlay: document.getElementById('win-modal'),
+            modalContent: document.getElementById('win-modal-content'),
+            modalPrizeName: document.getElementById('modal-prize-name'),
+            modalPrizeAmount: document.getElementById('modal-prize-amount'),
+            modalCloseBtn: document.getElementById('btn-modal-close')
         };
 
         // --- Initialization ---
@@ -425,18 +1597,18 @@
             els.startBtn.addEventListener('click', startSimulation);
             els.stopBtn.addEventListener('click', stopSimulation);
             els.resetBtn.addEventListener('click', resetSimulation);
-            
+
             els.speedBtns.forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     // Update UI
                     els.speedBtns.forEach(b => {
                         b.classList.remove('bg-yellow-500', 'text-black');
                         b.classList.add('bg-slate-700', 'text-white'); // Reset style logic roughly
-                        if(b.dataset.speed === "100") b.classList.add('text-red-400');
+                        if (b.dataset.speed === "100") b.classList.add('text-red-400');
                     });
                     e.target.classList.remove('bg-slate-700', 'text-white', 'text-red-400');
                     e.target.classList.add('bg-yellow-500', 'text-black');
-                    
+
                     // Update State
                     state.speedMultiplier = parseInt(e.target.dataset.speed);
                 });
@@ -445,13 +1617,38 @@
             els.autoStopChk.addEventListener('change', (e) => {
                 state.stopOnHighPrize = e.target.checked;
             });
+
+            els.modalCloseBtn.addEventListener('click', closeWinModal);
+        }
+
+        function showWinModal(prize) {
+            els.modalPrizeName.textContent = prize.name;
+            els.modalPrizeAmount.textContent = prize.prize.toLocaleString() + '円';
+
+            els.modalOverlay.classList.remove('hidden');
+            // Small delay to allow display:block to apply before opacity transition
+            requestAnimationFrame(() => {
+                els.modalOverlay.classList.remove('opacity-0');
+                els.modalContent.classList.remove('scale-90');
+                els.modalContent.classList.add('scale-100');
+            });
+        }
+
+        function closeWinModal() {
+            els.modalOverlay.classList.add('opacity-0');
+            els.modalContent.classList.remove('scale-100');
+            els.modalContent.classList.add('scale-90');
+
+            setTimeout(() => {
+                els.modalOverlay.classList.add('hidden');
+            }, 300);
         }
 
         function renderTable() {
             els.prizeTableBody.innerHTML = PRIZES.map(p => {
                 const prob = (p.count / UNIT_SIZE * 100).toFixed(6); // %
-                const probText = `1/${Math.round(UNIT_SIZE/p.count).toLocaleString()}`;
-                
+                const probText = `1/${Math.round(UNIT_SIZE / p.count).toLocaleString()}`;
+
                 let rowColor = "text-gray-300";
                 if (p.prize >= 100000000) rowColor = "text-yellow-400 font-bold";
                 else if (p.prize >= 1000000) rowColor = "text-white font-bold";
@@ -475,7 +1672,7 @@
         function startSimulation() {
             if (state.isRunning) return;
             state.isRunning = true;
-            
+
             els.startBtn.classList.add('hidden');
             els.stopBtn.classList.remove('hidden');
 
@@ -495,14 +1692,14 @@
             state.totalSpent = 0;
             state.totalWon = 0;
             PRIZES.forEach(p => state.prizeCounts[p.id] = 0);
-            
+
             // Clear Log
             els.logContainer.innerHTML = `
                 <p class="text-gray-500 text-center italic text-sm mt-10">
                     まだ当選はありません...<br>
                     (5等 1万円以上を表示)
                 </p>`;
-            
+
             updateUI(true); // Force full update
         }
 
@@ -518,22 +1715,16 @@
             if (state.speedMultiplier === 10) batchSize = 2000;
             if (state.speedMultiplier === 100) batchSize = 50000;
 
-            let stopNow = false;
+            let stopPrize = null;
 
             for (let i = 0; i < batchSize; i++) {
                 // Main RNG
                 // Generate integer 0 to 19,999,999
                 const rng = Math.floor(Math.random() * UNIT_SIZE);
-                
+
                 // Check Win
-                // Optimization: Most are losses (rng >= last threshold). Check that first?
-                // Actually the thresholds are small numbers compared to 20m.
-                // 7th prize limit is ~2.26m.
-                // So ~88% are losses.
-                
-                // Let's iterate thresholds.
                 let wonPrize = null;
-                
+
                 // 7th prize has the highest limit (2,260,247).
                 // If rng >= 2,260,247, it's a loss.
                 if (rng < THRESHOLDS[THRESHOLDS.length - 1].limit) {
@@ -552,30 +1743,27 @@
                 if (wonPrize) {
                     state.totalWon += wonPrize.prize;
                     state.prizeCounts[wonPrize.id]++;
-                    
+
                     // Log high prizes (>= 5th prize / 10,000 yen)
-                    // 5th prize id is 'p5'
-                    // Check if prize >= 10000
                     if (wonPrize.prize >= 10000) {
                         addLog(wonPrize);
                     }
 
                     // Auto Stop Check
                     if (state.stopOnHighPrize && wonPrize.prize >= 100000000) {
-                        stopNow = true;
-                        // Force log for big win
-                        // addLog(wonPrize, true); // Removed redundant call
+                        stopPrize = wonPrize;
                     }
                 }
-                
-                if (stopNow) break;
+
+                if (stopPrize) break;
             }
 
-            updateUI();
+            // Force update if stopping
+            updateUI(!!stopPrize);
 
-            if (stopNow) {
+            if (stopPrize) {
                 stopSimulation();
-                alert("高額当選が出ました！おめでとうございます！");
+                showWinModal(stopPrize);
             } else {
                 animationFrameId = requestAnimationFrame(runLoop);
             }
@@ -593,18 +1781,18 @@
             els.statCount.textContent = state.totalTickets.toLocaleString();
             els.statSpent.textContent = state.totalSpent.toLocaleString();
             els.statWon.textContent = state.totalWon.toLocaleString();
-            
+
             const balance = state.totalWon - state.totalSpent;
             els.statBalance.textContent = (balance > 0 ? "+" : "") + balance.toLocaleString();
             els.statBalance.className = `text-3xl font-mono font-bold mt-1 ${balance >= 0 ? 'text-green-400' : 'text-red-400'}`;
-            
+
             const returnRate = state.totalSpent > 0 ? ((state.totalWon / state.totalSpent) * 100).toFixed(2) : "0.0";
             els.statReturn.textContent = `回収率: ${returnRate}%`;
 
             // Table Counts
             PRIZES.forEach(p => {
                 const cell = document.getElementById(`count-${p.id}`);
-                if(cell) cell.textContent = state.prizeCounts[p.id].toLocaleString();
+                if (cell) cell.textContent = state.prizeCounts[p.id].toLocaleString();
             });
         }
 
@@ -646,7 +1834,7 @@
             `;
 
             els.logContainer.prepend(div);
-            
+
             // Limit log entries to keep DOM light
             if (els.logContainer.children.length > 50) {
                 els.logContainer.lastElementChild.remove();
@@ -657,10 +1845,12 @@
         init();
 
     </script>
-    
+
     <!-- Image Sources for attribution and preloading check
     "/gen?prompt=Festive+Japanese+lottery+banner+with+gold+and+red+colors,+stacks+of+money,+maneki+neko,+shiny+gold+coins,+text+free&aspect=16:9"
     -->
 
 
-</body></html>
+</body>
+
+</html>
